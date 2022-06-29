@@ -20,15 +20,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
-
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
             val loginStatus = viewModel.login(
                 username = findViewById<EditText>(R.id.tvUsername).text.toString(),
                 password = findViewById<EditText>(R.id.tvPassword).text.toString()
             )
             if (loginStatus) {
-
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             }
         }
     }
